@@ -1,0 +1,91 @@
+.row {
+    display: flex;
+}
+.input-control {
+    height: 25px;
+    width: 100%;
+    /* border-width: 2px; */
+}
+.labelSty {
+    width: 40%;
+}
+.lableValidate {
+    visibility: hidden;
+    width: 35px;
+}
+.loginStyle {
+    width: 60%;
+    margin: auto;
+    background-color: wheat;
+}
+.signUpBtn {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: red;
+}
+.signInBtn {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: green;
+}
+.common {
+    width: 80%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* background-color: aquamarine;  */
+}
+.btn {
+    /* width: 100%; */
+    background-color: orange;
+    /* margin: 0; */
+    padding: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    height: 40px;
+
+}
+
+#loginId {
+    display: none;
+}
+
+#loginMain {
+    display: none;
+}
+
+.header {
+    height: 80px;
+}
+
+#main {
+    display: block;
+}
+
+#home {
+    display: block;
+}
+#mList {
+    display: none;
+}
+#purchase {
+    display: none;
+}
+#cancel {
+    display: none;
+}
+#topup {
+    display: none;
+}
+#balance {
+    display: none;
+}
+
+.addmedicine {
+    width: 50%;
+}
