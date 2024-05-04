@@ -80,10 +80,11 @@
                     <!-- <form id=""> -->
                     <button type="submit" class="btn" onclick="readerDefault()">Medicine Details</button>
                     <!-- </form> -->
-                    <button class="btn" onclick="PurchasePage()">Purchase</button>
-                    <button class="btn" onclick="CancelPage()">Cancel</button>
+                    <button class="btn" onclick="renderPurchase()">Purchase</button>
+                    <button class="btn" onclick="renderOrderHistory()">Order History</button>
+                    <button class="btn" onclick="CancelOrder()">Cancel Order</button>
                     <button class="btn" onclick="TopUp()">Top Up</button>
-                    <button class="btn" onclick="ShowBalance()">Show Balance</button>
+                    <button class="btn" onclick="displayBalance()">Show Balance</button>
                 </div>
             </div>
 
@@ -92,8 +93,73 @@
             </div>
             <div class="mList" id="mList">
                 <div>
-                   
-                    <table border="2" id="dataTable">
+                    <div class="addmedicine">
+                        <button onclick="AddMedicine()">Add Medicine</button><br><br>
+                        <div class="addMedicineForm" id="addMedicineForm">
+                            <div>
+                                <div class="row">
+                                    <div class="labelSty"><label>Medicine Name</label></div>
+                                    <input class="input-control" type="text" id="a_mName">
+                                    <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
+                                    <br><br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="labelSty"><label>Medicine Price</label></div>
+                                    <input class="input-control" type="text" id="a_mPrice">
+                                    <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
+                                    <br><br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="labelSty"><label>Medicine Quantity</label></div>
+                                    <input class="input-control" type="text" id="a_mQty">
+                                    <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
+                                    <br><br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="labelSty"><label>Expire Date</label></div>
+                                    <input class="input-control" type="date" id="a_mExpire">
+                                    <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
+                                    <br><br>
+                                </div>
+                            </div>
+                            <br>
+                            <div>
+                                <div class="row">
+                                    <div class="labelSty"><label></label></div>
+                                    <button type="submit" class="input-control btn"
+                                        onclick="AddMedicine()">Submit</button>
+                                    <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
+                                    <br><br>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <h3>Edit Medicine</h3>
+                        <table border="2" id="ediTable" class="dataTableSty">
+                            <thead>
+                                <tr>
+                                    <th>Medicine Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Expire Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div> -->
+                    <h3>Medicine List</h3>
+                    <table border="2" id="dataTable" class="dataTableSty">
                         <thead>
                             <tr>
                                 <th>Medicine Name</th>
@@ -104,60 +170,77 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
                         </tbody>
                     </table>
                 </div>
                 <br><br><br>
-                <div class="addmedicine">
-                    
-                    <div>
-                        <div class="row">
-                            <div class="labelSty"><label>Medicine Name</label></div>
-                            <input class="input-control" type="text" id="a_mName" onfocusout="">
-                            <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
-                            <br><br>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="row">
-                            <div class="labelSty"><label>Medicine Price</label></div>
-                            <input class="input-control" type="text" id="a_mPrice" onfocusout="">
-                            <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
-                            <br><br>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="row">
-                            <div class="labelSty"><label>Medicine Quantity</label></div>
-                            <input class="input-control" type="text" id="a_mQty" onfocusout="">
-                            <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
-                            <br><br>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="row">
-                            <div class="labelSty"><label>Expire Date</label></div>
-                            <input class="input-control" type="text" id="a_mExpire" onfocusout="">
-                            <!-- <label class="lableValidate" id="lemailDis">In Valid</label> -->
-                            <br><br>
-                        </div>
-                    </div>
-                    <button onclick="">Add Medicine</button><br><br>
-                    
-                </div>
+
             </div>
             <div class="purchase" id="purchase">
-                Purchase List
+                <h3>Purchase</h3>
+                <div>
+                    <form id="purchaseForm">
+                    <label>Enter Quantity</label><br><br>
+                    <input type="number" id="purchaseAddQty"><br><br>
+                    <button type="submit" onclick="return addPurchase()">Submit</button>
+                    </form>
+                    <table border="2" id="PurchaseTable" class="dataTableSty">
+                        <thead>
+                            <tr>
+                                <th>Medicine Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Expire Date</th>
+                                <th style="width: 30%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="orderHistory" id="orderHistory">
+                <table border="2" id="OrderHistory" class="dataTableSty">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Medicine Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Order Date</th>
+                            <th>Order Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
             <div class="cancel" id="cancel">
-                Cancel page
+                <h3>Order List</h3>
+                <table border="2" id="OrderCancel" class="dataTableSty">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Medicine Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Order Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
             <div class="topup" id="topup">
-                Top Up
+                <label>Enter a Amount</label><br>
+                <input type="number" id="addRecharge" class="input-control"><br>
+                <button class="btn" type="submit" onclick="WalletRecharge()">Submite</button>
             </div>
             <div class="balance" id="balance">
-                Show Balance
             </div>
         </div>
     </div>

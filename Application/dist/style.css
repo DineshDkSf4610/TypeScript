@@ -1,23 +1,28 @@
 .row {
     display: flex;
 }
+
 .input-control {
     height: 25px;
     width: 100%;
     /* border-width: 2px; */
 }
+
 .labelSty {
     width: 40%;
 }
+
 .lableValidate {
     visibility: hidden;
     width: 35px;
 }
+
 .loginStyle {
     width: 60%;
     margin: auto;
     background-color: wheat;
 }
+
 .signUpBtn {
     width: 100%;
     margin: 10px;
@@ -25,6 +30,7 @@
     font-weight: bold;
     background-color: red;
 }
+
 .signInBtn {
     width: 100%;
     margin: 10px;
@@ -32,6 +38,7 @@
     font-weight: bold;
     background-color: green;
 }
+
 .common {
     width: 80%;
     margin: auto;
@@ -39,6 +46,7 @@
     padding-bottom: 30px;
     /* background-color: aquamarine;  */
 }
+
 .btn {
     /* width: 100%; */
     background-color: orange;
@@ -56,7 +64,7 @@
 }
 
 #loginMain {
-    display: none;
+    display: block;
 }
 
 .header {
@@ -64,28 +72,58 @@
 }
 
 #main {
-    display: block;
+    display: none;
 }
 
 #home {
     display: block;
 }
+
 #mList {
     display: none;
 }
+
 #purchase {
     display: none;
 }
+
 #cancel {
     display: none;
 }
+
 #topup {
     display: none;
 }
+
 #balance {
     display: none;
 }
 
 .addmedicine {
     width: 50%;
+}
+
+/* #dataTable {
+    width: 100%;
+    margin: auto;
+} */
+.dataTableSty {
+    width: 100%;
+    margin: auto;
+}
+
+#addMedicineForm {
+    display: none;
+}
+
+.input-control1 {
+    border: none;
+    outline: none;
+}
+
+.orderHistory {
+    display: none;
+}
+#purchaseForm {
+    display: none;
 }
