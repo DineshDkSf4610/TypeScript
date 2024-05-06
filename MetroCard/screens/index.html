@@ -1,0 +1,130 @@
+<html>
+<title>Metro Card</title>
+<link rel="stylesheet" href="style.css">
+<!-- <script src="index.js"></script> -->
+
+<body>
+    <div>
+        <!-- header -->
+    </div>
+    <div>
+        <!-- body  -->
+
+        <!-- login -->
+        <div class="loginStyle" id="loginMain">
+            <!-- singn up -->
+            <div class="row">
+                <button class="signUpBtn" onclick="signUp()">Registration</button>
+                <button class="signInBtn" onclick="login()">Login</button>
+            </div>
+            <div class="common" id="signUpId">
+                <div class="row">
+                    <div class="labelSty"><label>User Name</label></div>
+                    <input class="input-control" type="number" id="userName" onfocusout="">
+                    <label class="lableValidate" id="userDis">In Valid</label>
+                    <br><br>
+                </div>
+                <div class="row">
+                    <div class="labelSty"><label>Password</label></div>
+                    <input class="input-control" type="text" id="password" onfocusout="">
+                    <label class="lableValidate" id="passDis">In Valid</label>
+                    <br><br>
+                </div>
+
+                <div class="row">
+                    <div class="labelSty"><label></label></div>
+                    <button class="btn input-control" onclick="signUpValidate()">Submit</button>
+                    <label class="lableValidate" id="">.</label>
+                    <br><br>
+                </div>
+            </div>
+            <div class="common" id="loginId">
+                <div class="row">
+                    <!-- <div class="labelSty"><label>Card ID</label></div> -->
+                    <div class="labelSty"><label>User Name</label></div>
+                    <input class="input-control" type="text" id="lemail" onfocusout="">
+                    <label class="lableValidate" id="lemailDis">In Valid</label>
+                    <br><br>
+                </div>
+                <div class="row">
+                    <div class="labelSty"><label></label></div>
+                    <button class="btn input-control" onclick="loginValidate()">Submit</button>
+                    <label class="lableValidate" id="">.</label>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div class="main" id="main">
+            <div class="header">
+                <div class="row">
+                    <button class="btn" onclick="HomePage()">Home</button>
+                    <!-- <form id=""> -->
+                    <button type="submit" class="btn" onclick="BookTravels()">Book Travels</button>
+                    <!-- </form> -->
+                    <button class="btn" onclick="viewHistory()">View Travel History</button>
+                    <button class="btn" onclick="topup()">Top Up</button>
+                    <button class="btn" onclick="showBlance()">Show Balance</button>
+                </div>
+            </div>
+
+            <div class="home" id="home">
+                Welcome
+            </div>
+
+            <div class="purchase" id="bookTravel">
+                <h3>Book Travels</h3>
+                <div>
+                    <!-- <form id="TravelForm">
+                    <label>Enter Ticked ID</label><br><br>
+                    <input type="number" id="purchaseAddQty"><br><br>
+                    <button type="submit" onclick="return addPurchase()">Submit</button>
+                    </form> -->
+                    <table border="2" id="bookTable" class="dataTableSty">
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>From Location</th>
+                                <th>To Location</th>
+                                <th>Fair</th>
+                                <th style="width: 30%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="orderHistory" id="viewHistory">
+                <table border="2" id="viewHistory1" class="dataTableSty">
+                    <thead>
+                        <tr>
+                            <th>Travel ID</th>
+                            <th>From Location</th>
+                            <th>To Location</th>
+                            <th>Travel Cost</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="topup" id="topup">
+                <label>Enter a Amount</label><br>
+                <input type="number" id="addRecharge" class="input-control"><br>
+                <button class="btn" type="submit" onclick="WalletRecharge()">Submite</button>
+            </div>
+            <div class="balance" id="balance">
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
