@@ -134,11 +134,15 @@ th, td {
 .orderHistory {
     display: none;
 }
-#purchaseForm {
+#BorrowQtyForm {
     display: none;
 }
 
 .text-center
 {
     text-align: center;
+}
+
+.returnBook1 {
+    display: none;
 }

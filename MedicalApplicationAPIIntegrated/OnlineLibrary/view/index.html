@@ -117,11 +117,14 @@
             <div class="purchase" id="bookTravel">
                 <h3>Books</h3>
                 <div>
-                    <!-- <form id="TravelForm">
-                    <label>Enter Ticked ID</label><br><br>
-                    <input type="number" id="purchaseAddQty"><br><br>
-                    <button type="submit" onclick="return addPurchase()">Submit</button>
-                    </form> -->
+                    <!-- <form id="BorrowQtyForm"> -->
+                    <div id="BorrowQtyForm">
+                        <label>Enter Quantity</label><br><br>
+                        <input type="number" id="purchaseAddQty"><br><br>
+                        <button type="submit" onclick="return BorrowBookFun()">Submit</button>
+                    </div>
+                    <br>
+                    <!-- </form> -->
                     <table border="1" id="bookTable" class="dataTableSty">
                         <thead>
                             <tr>
@@ -137,15 +140,31 @@
                     </table>
                 </div>
             </div>
+            <div class="returnBook1" id="returnBook1">
+                <table border="1" id="returnBook" class="dataTableSty">
+                    <thead>
+                        <tr>
+                            <th>Book Name</th>
+                            <!-- <th>Author Name</th> -->
+                            <th>Book Count</th>
+                            <th>Borrowed Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
             <div class="orderHistory" id="viewHistory">
                 <table border="1" id="viewHistory1" class="dataTableSty">
                     <thead>
                         <tr>
-                            <th>Travel ID</th>
-                            <th>From Location</th>
-                            <th>To Location</th>
-                            <th>Travel Cost</th>
-                            <th>Date</th>
+                            <th>Book ID</th>
+                            <!-- <th>Author Name</th> -->
+                            <th>Book Count</th>
+                            <th>Borrowed Date</th>
+                            <th>Status</th>
+                            <th>Fine Amount</th>
                         </tr>
                     </thead>
                     <tbody>
