@@ -201,10 +201,10 @@ function signUpValidate() {
     if (pass.value == conPass.value) {
         // UserArrayList.push(new Users(email.value, pass.value, phone.value));
         const user = {
-            userID: -1,
-            userEmail: "s@gmail.com",
-            userPassword: "123456",
-            userPhoneNumber: "638422542",
+            userID: 0,
+            userEmail: email.value,
+            userPassword: pass.value,
+            userPhoneNumber: phone.value,
             balance: 0
         };
         AddUser(user);
@@ -611,7 +611,7 @@ function addPurchase() {
         MediciniceUpdate(selectedMedicine.medicineID, selectedMedicine);
         // OrdersList.push(new OrderDetails(selectedMedicine.MedicineId, CurrentUserId.UserId, selectedMedicine.MedicineName, parseInt(purchaseFormOty.value), new Date(), totalAmount, "Ordered"));
         const order = {
-            orderID: -1,
+            orderID: 0,
             userID: CurrentUserId.userID,
             orderMedicineID: selectedMedicine.medicineID,
             orderMedicineName: selectedMedicine.medicineName,
@@ -726,7 +726,7 @@ function AddMedicine() {
     addMedicineForm.style.display = "block";
     if (mName.value != "" && a_mExpire.value != "" && a_mQty.value != "" && a_mPrice.value != "") {
         const medicine = {
-            medicineID: -1,
+            medicineID: 0,
             medicineName: mName.value,
             medicinePrice: parseInt(a_mPrice.value),
             medicineQty: parseInt(a_mQty.value),

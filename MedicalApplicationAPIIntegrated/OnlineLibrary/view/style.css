@@ -1,0 +1,144 @@
+.row {
+    display: flex;
+}
+
+.input-control {
+    height: 25px;
+    width: 100%;
+    /* border-width: 2px; */
+}
+
+.labelSty {
+    width: 40%;
+}
+
+.lableValidate {
+    visibility: hidden;
+    width: 35px;
+}
+
+.loginStyle {
+    width: 60%;
+    margin: auto;
+    background-color: #e9faf9;
+}
+
+.signUpBtn {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: red;
+}
+
+.signInBtn {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: green;
+}
+
+.common {
+    width: 80%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* background-color: aquamarine;  */
+}
+
+.btn {
+    /* width: 100%; */
+    background-color: orange;
+    /* margin: 0; */
+    padding: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    height: 40px;
+
+}
+
+#loginId {
+    display: none;
+    /* display: block; */
+}
+
+#loginMain {
+    display: block;
+}
+
+.header {
+    height: 80px;
+}
+
+#main {
+    display: none;
+
+    /* display: block; */
+}
+
+#home {
+    display: block;
+}
+
+#mList {
+    display: none;
+}
+
+#bookTravel {
+    display: none;
+}
+
+#cancel {
+    display: none;
+}
+
+#topup {
+    display: none;
+    width: 30%;
+}
+
+#balance {
+    display: none;
+}
+
+.addmedicine {
+    width: 50%;
+}
+
+/* #dataTable {
+    width: 100%;
+    margin: auto;
+} */
+.dataTableSty {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    
+}
+
+#addMedicineForm {
+    display: none;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
+  }
+
+.input-control1 {
+    border: none;
+    outline: none;
+}
+
+.orderHistory {
+    display: none;
+}
+#purchaseForm {
+    display: none;
+}
+
+.text-center
+{
+    text-align: center;
+}
