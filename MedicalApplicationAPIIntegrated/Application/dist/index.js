@@ -151,48 +151,6 @@ function fetchUsersApi() {
         return yield response.json();
     });
 }
-// class User {
-//     UserId: string;
-//     UserEmail: string;
-//     UserPassword: string;
-//     UserPhoneNumber: string;
-//     Balance: number;
-//     constructor(paraUserEmail: string, paraUserPassWord: string, paraUserPhoneNumber: string) {
-//         UserIdAutoIncrement++;
-//         this.UserId = "UID" + UserIdAutoIncrement;
-//         this.UserEmail = paraUserEmail;
-//         this.UserPassword = paraUserPassWord;
-//         this.UserPhoneNumber = paraUserPhoneNumber;
-//         this.Balance = 0;
-//     }
-// }
-// class OrderDetails {
-//     OrderId: string;
-//     UserID: string;
-//     OrderMedicineID: string;
-//     OrderMedicineName: string;
-//     OrderQuantity: number;
-//     OrderDate: Date;
-//     TotalPrice: number;
-//     OrderStatus: string;
-//     constructor(paraOrderMedicineID: string, paraUserID: string, paraOrderMedicineName: string, paraOrderQuantity: number, paraOrderDate: Date, paraOrderPrice: number, paraOrderStatus: string) {
-//         OrderIDAutoIncrement++;
-//         this.OrderId = "OID" + OrderIDAutoIncrement;
-//         this.UserID = paraUserID;
-//         this.OrderMedicineID = paraOrderMedicineID;
-//         this.OrderMedicineName = paraOrderMedicineName;
-//         this.OrderQuantity = paraOrderQuantity;
-//         this.OrderDate = paraOrderDate;
-//         this.TotalPrice = paraOrderPrice;
-//         this.OrderStatus = paraOrderStatus;
-//     }
-// }
-// let UserArrayList: Array<User> = new Array<User>();
-// UserArrayList.push(new User("dinesh", "123456", "6384225424"));
-// UserArrayList.push(new User("kumar", "123456", "6384225424"));
-// let OrdersList: Array<OrderDetails> = new Array<OrderDetails>();
-// OrdersList.push(new OrderDetails("MID11", "UID1001", "Paracetomol", 1, new Date(), 2, "Ordered"));
-// MedicineList.push(new MedicineInfo("Paracetomol", 2, 50, new Date(2024, 10, 10)));
 function signUpValidate() {
     var pass = document.getElementById("password");
     var conPass = document.getElementById("conPass");
@@ -367,7 +325,7 @@ function CancelListShow() {
                 <td>${item.orderQuantity}</td>
                 <td>${item.totalPrice}</td>
                 <td>${item.orderDate.toString().substring(0, 10)}</td>
-                <button class="btn" onclick="CancelOrder(${item.orderID})">Cancel</button>
+                <td><button class="btn" onclick="CancelOrder(${item.orderID})">Cancel</button></td>
                 `;
                 tableBody4.appendChild(row);
             }
@@ -397,27 +355,6 @@ function CancelOrder(id) {
         }));
     });
 }
-// function CancelOrder(id: string) {
-// CancelListShow();
-// MedicineList.forEach((item) => {
-//     if (item.MedicineId == orders.OrderMedicineID) {
-//         item.MedicineId += orders.OrderQuantity;
-//     }
-// });
-// OrdersList.forEach((item) => {
-//     if (item.OrderId == id) {
-//         item.OrderStatus = "Cancelled";
-//         CurrentUserId.Balance += item.TotalPrice;
-//         MedicineList.forEach((item1) => {
-//             if (item1.MedicineId == item.OrderMedicineID) {
-//                 item1.MedicineId += item.OrderQuantity;
-//                 alert("Cancelled Successfully ...!");
-//                 CancelListShow();
-//             }
-//         });
-//     }
-// });
-// }
 function TopUp() {
     var home = document.getElementById("home");
     var mList = document.getElementById("mList");
@@ -450,26 +387,8 @@ function ShowBalance() {
     balance.style.display = "block";
     orderHistory.style.display = "none";
 }
-// class MedicineInfo {
-//     MedicineId: string;
-//     MedicineName: string;
-//     MedicinePrice: number;
-//     MedicineQty: number;
-//     MedicineExpire: Date;
-//     constructor(paramMedicineName: string, paramMedicinePrice: number, paramMedicineQtry: number, paramMedicineExpire: Date) {
-//         MedicineIdAutoIncrement++;
-//         this.MedicineId = "MID" + MedicineIdAutoIncrement;
-//         this.MedicineName = paramMedicineName;
-//         this.MedicinePrice = paramMedicinePrice;
-//         this.MedicineQty = paramMedicineQtry;
-//         this.MedicineExpire = paramMedicineExpire;
-//     }
-// }
 //Store Data
 let MedicineList = new Array();
-//Add Default Values
-// MedicineList.push(new MedicineInfo("Paracetomol", 2, 50, new Date(2024, 10, 10)));
-// MedicineList.push(new MedicineInfo("a", 2, 50, new Date(2024, 10, 10)));
 const medicineForm = document.getElementById("medicineForm");
 const tableBody = document.querySelector("#dataTable tbody");
 const tableBody1 = document.querySelector("#ediTable tbody");
@@ -514,29 +433,6 @@ function readerDefault() {
         });
     });
 }
-// const readerDefault = () => {
-// MedicinePage();
-// tableBody.innerHTML = "";
-// MedicineList.forEach((item) => {
-//     var date = item.MedicineExpire.toISOString();
-//     var expireDate = date.substring(0, 10);
-//     const row = document.createElement("tr");
-//     row.innerHTML = `
-//     <td><input class="input-control1" type="text" id="${item.MedicineId}e_mName" value="${item.MedicineName}" readonly></td>
-//     <td><input class="input-control1" type="text" id="${item.MedicineId}e_mPrice" value="${item.MedicinePrice}" readonly></td>
-//     <td><input class="input-control1" type="text" id="${item.MedicineId}e_mQty" value="${item.MedicineQty}" readonly></td>
-//     <td><input class="input-control1" type="date" id="${item.MedicineId}e_mExpire" value="${expireDate}" readonly></td>
-//     <td style="display: flex;">
-//       <button onclick="edit1('${item.MedicineId}','edit')">Edit</button>
-//       <button onclick="edit1('${item.MedicineId}','save')" id="${item.MedicineId}e_save" style="display: none; background-color: green;color: white;margin: 0px 5px;">Save</button>
-//       <button onclick="deleteMedicine('${item.MedicineId}')">Delete</button>
-//     </td>
-//     `;
-//     // let temp = document.getElementById(item.MedicineId+"e_mExpire") as HTMLInputElement;
-//     // temp.valueAsDate = item.MedicineExpire;
-//     tableBody.appendChild(row);
-// });
-// }
 function renderPurchase() {
     return __awaiter(this, void 0, void 0, function* () {
         PurchasePage();
@@ -562,27 +458,6 @@ function renderPurchase() {
         });
     });
 }
-// const renderPurchase = () => {
-// PurchasePage();
-// tableBody2.innerHTML = "";
-// MedicineList.forEach((item) => {
-//     if (item.MedicineExpire > new Date() && item.MedicineQty > 0) {
-//         var date = item.MedicineExpire.toISOString();
-//         var expireDate = date.substring(0, 10);
-//         const row = document.createElement("tr");
-//         row.innerHTML = `
-//             <td><input class="input-control1" type="text" id="${item.MedicineId}e_mName" value="${item.MedicineName}" readonly></td>
-//             <td><input class="input-control1" type="text" id="${item.MedicineId}e_mPrice" value="${item.MedicinePrice}" readonly></td>
-//             <td><input class="input-control1" type="text" id="${item.MedicineId}e_mQty" value="${item.MedicineQty}" readonly></td>
-//             <td><input class="input-control1" type="date" id="${item.MedicineId}e_mExpire" value="${expireDate}" readonly></td>
-//             <td style="">
-//               <button class="btn" onclick="showQuyForm('${item.MedicineId}')">To BUY</button><br><br>
-//             </td>
-//             `;
-//         tableBody2.appendChild(row);
-//     }
-// });
-// }
 function showQuyForm(id) {
     return __awaiter(this, void 0, void 0, function* () {
         purchaseForm.style.display = "block";
@@ -648,29 +523,6 @@ function renderOrderHistory() {
         });
     });
 }
-// const renderOrderHistory = () => {
-// OrderHistoryPage();
-// tableBody3.innerHTML = "";
-// OrdersList.forEach((item) => {
-//     if (CurrentUserId.UserId == item.UserID) {
-//         const row = document.createElement("tr");
-//         row.innerHTML = `
-//             <td>${item.OrderId}</td>
-//             <td>${item.OrderMedicineName}</td>
-//             <td>${item.TotalPrice / item.OrderQuantity}</td>
-//             <td>${item.OrderQuantity}</td>
-//             <td>${item.TotalPrice}</td>
-//             <td>${item.OrderDate.toLocaleDateString()}</td>
-//             <td>${item.OrderStatus}</td>
-//             `;
-//         tableBody3.appendChild(row);
-//     }
-// });
-// }
-// <td>${item.MedicinePrice}</td>
-// <td>${item.MedicineQty}</td>    
-// <td>${item.MedicineExpire.toLocaleDateString()}</td>
-// <button onclick="edit('${item.MedicineId}')">Edit</button>
 function edit1(id, type) {
     return __awaiter(this, void 0, void 0, function* () {
         var e_mName = document.getElementById(id + "e_mName");
@@ -699,11 +551,6 @@ function edit1(id, type) {
             style1("e_mExpire", id);
             e_save.style.display = "none";
         }
-        //    e_mName.style.border = "block";
-        //    e_mName.style.outline = "block";
-        //    e_mName.style.border = "2px solid green";
-        //    e_mName.readOnly = false;
-        //    e_mName.style.width = "100%";
     });
 }
 function style(define, id) {
@@ -767,14 +614,37 @@ function deleteMedicine(id) {
 }
 function editSave(id) {
 }
-// const edit = (id: number) => {
-//     Med = id;
-//     const item = data.find((item) => item.id === id);
-//     if (item) {
-//       nameInput.value = item.name;
-//       ageInput.value = String(item.age);
-//     }
-//   };
+function tableToCSV() {
+    let csv_data = [];
+    let row = document.querySelectorAll("#OrderHistory  tr");
+    for (let i = 0; i < row.length; i++) {
+        let cols = row[i].querySelectorAll('th,td');
+        let colRow = [];
+        for (let j = 0; j < cols.length; j++) {
+            colRow.push(cols[j].innerHTML);
+        }
+        csv_data += (colRow.join(",") + '\n');
+    }
+    DownloadFile(csv_data);
+}
+function DownloadFile(csv_data) {
+    // Create CSV file object and feed our
+    // csv_data into it
+    let CSVFile = new Blob([csv_data], { type: "text/csv" });
+    // Create to temporary link to initiate
+    // download process
+    let temp_link = document.createElement('a');
+    // Download csv file
+    temp_link.download = "medicineList.csv";
+    let url = window.URL.createObjectURL(CSVFile);
+    temp_link.href = url;
+    // This link should not be displayed
+    temp_link.style.display = "none";
+    document.body.appendChild(temp_link);
+    // Automatically click the link to trigger download 
+    temp_link.click();
+    document.body.removeChild(temp_link);
+}
 const addMedicineForm = document.getElementById("addMedicineForm");
 const mName = document.getElementById("a_mName");
 const a_mPrice = document.getElementById("a_mPrice");

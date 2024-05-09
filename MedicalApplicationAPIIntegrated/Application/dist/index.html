@@ -75,7 +75,7 @@
         </div>
 
         <div class="main" id="main">
-            <div class="header">
+            <div class="header" style="display: ruby-text;">
                 <div class="row">
                     <button class="btn" onclick="HomePage()">Home</button>
                     <!-- <form id=""> -->
@@ -87,6 +87,7 @@
                     <button class="btn" onclick="TopUp()">Top Up</button>
                     <button class="btn" onclick="displayBalance()">Show Balance</button>
                 </div>
+                <button class="btn" onclick="displayBalance()">Logout</button>
             </div>
 
             <div class="home" id="home">
@@ -95,7 +96,10 @@
             <div class="mList" id="mList">
                 <div>
                     <div class="addmedicine">
-                        <button onclick="AddMedicine()">Add Medicine</button><br><br>
+                        <div class="exporeRow">
+                            <button class="btnbtn" onclick="AddMedicine()">Add Medicine</button><br><br>
+                            <!-- <button class="btnbtn" onclick="tableToCSV()">Export CSV</button><br><br> -->
+                        </div>
                         <div class="addMedicineForm" id="addMedicineForm">
                             <div>
                                 <div class="row">
@@ -202,6 +206,7 @@
                 </div>
             </div>
             <div class="orderHistory" id="orderHistory">
+                <button class="btnbtn" onclick="tableToCSV()">Export CSV</button><br><br>
                 <table border="2" id="OrderHistory" class="dataTableSty">
                     <thead>
                         <tr>
@@ -219,6 +224,7 @@
                 </table>
             </div>
             <div class="cancel" id="cancel">
+                <!-- <button class="btnbtn" onclick="tableToCSV()">Export CSV</button><br><br> -->
                 <h3>Order List</h3>
                 <table border="2" id="OrderCancel" class="dataTableSty">
                     <thead>

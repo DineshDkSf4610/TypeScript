@@ -20,7 +20,11 @@
 .loginStyle {
     width: 60%;
     margin: auto;
-    background-color: wheat;
+    /* background-color: wheat; */
+    background-color: #eaf7ff;
+    border-radius: 30px;
+    margin-top: 10%;
+    padding-top: 20px;
 }
 
 .signUpBtn {
@@ -28,7 +32,10 @@
     margin: 10px;
     padding: 10px;
     font-weight: bold;
-    background-color: red;
+    /* background-color: red; */
+    border: none;
+    border-radius: 10px;
+    background-color: #65afde;
 }
 
 .signInBtn {
@@ -36,7 +43,10 @@
     margin: 10px;
     padding: 10px;
     font-weight: bold;
-    background-color: green;
+    /* background-color: green; */
+    background-color: #10b310;
+    border: none;
+    border-radius: 10px;
 }
 
 .common {
@@ -56,6 +66,9 @@
     margin-right: 10px;
     padding: 10px;
     height: 40px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
 
 }
 
@@ -81,6 +94,8 @@
 
 #mList {
     display: none;
+    margin: auto;
+    width: 90%;
 }
 
 #purchase {
@@ -126,4 +141,12 @@
 }
 #purchaseForm {
     display: none;
+}
+
+.exporeRow {
+    display: flex;
+}
+.btnbtn {
+    margin: 5px;
+    padding: 10px;
 }
