@@ -106,15 +106,34 @@
 
 table {
     width: 100%;
+    border-collapse: collapse;
 }
+tr:nth-child(even) {background-color: #f2f2f2;}
 
 .cartBox {
-    width: 22%;
-    height: 450px;
+    width: 15%;
+    height: 205px;
     background-color: #fcdfa2;
-    margin: 10px;
+    margin: 12px;
+    padding: 33px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px lightgrey;
 }
 
 .cartMain {
     display: ruby-text;
+}
+
+#CartListTable {
+    text-align: center;
+}
+#CartListPage {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+#OrderHistoryPage {
+    margin: auto;
+    width: 80%;
+
 }

@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 let CurrentLoggedIn;
+// let cardList: OrderDetails;
 const signUpMain = document.getElementById("signUpMain");
 const signInMain = document.getElementById("signInMain");
 const loginMain = document.getElementById("loginMain");
@@ -17,6 +18,7 @@ const HomePage = document.getElementById("HomePage");
 const ProductPage = document.getElementById("ProductPage");
 const CartPage = document.getElementById("CartPage");
 const CartListPage = document.getElementById("CartListPage");
+const OrderHistoryPage = document.getElementById("OrderHistoryPage");
 const RechargePage = document.getElementById("RechargePage");
 const ShowBalancePage = document.getElementById("ShowBalancePage");
 const Uname = document.getElementById("Uname");
@@ -34,7 +36,10 @@ const ProductExpireDate = document.getElementById("ProductExpireDate");
 const ProductImage = document.getElementById("ProductImage");
 const AddProductForm = document.getElementById("AddProductForm");
 const tableBody = document.querySelector("#ProductTable tbody");
+const tableBody1 = document.querySelector("#CartListTable tbody");
+const tableBody2 = document.querySelector("#OrderHistory tbody");
 const cartMain = document.getElementById("cartMain");
+let localCartList = [];
 function AddUserApi(user) {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch('http://localhost:5043/api/UserInfo', {
@@ -47,6 +52,7 @@ function AddUserApi(user) {
         if (!response.ok) {
             throw new Error('Add User Faild');
         }
+        return response.json();
     });
 }
 function AddProductApi(user) {
@@ -63,6 +69,75 @@ function AddProductApi(user) {
         }
     });
 }
+function AddBookOrderApi(book) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch('http://localhost:5043/api/BookingOrders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(book)
+        });
+        if (!response.ok) {
+            throw new Error('ProductDetails Faild');
+        }
+        return yield response.json();
+    });
+}
+function AddOrderDetailsApi(user) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch('http://localhost:5043/api/OrderDetails', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        });
+        if (!response.ok) {
+            throw new Error('ProductDetails Faild');
+        }
+    });
+}
+function FetchBookingOrderApi() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const apiUrl = 'http://localhost:5043/api/BookingOrders';
+        const response = yield fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Get Booking Order List Faild');
+        }
+        return yield response.json();
+    });
+}
+function FetchGetBookingOrderApi(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const apiUrl = `http://localhost:5043/api/BookingOrders/${id}`;
+        const response = yield fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Get Booking Details Faild');
+        }
+        return yield response.json();
+    });
+}
+function FetchGetOrderDetailsApi(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const apiUrl = `http://localhost:5043/api/OrderDetails/${id}`;
+        const response = yield fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Get Order Details Faild');
+        }
+        return yield response.json();
+    });
+}
+function FetchOrderDetailsApi() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const apiUrl = 'http://localhost:5043/api/OrderDetails';
+        const response = yield fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Get Order Details Faild');
+        }
+        return yield response.json();
+    });
+}
 function FetchUsersApi() {
     return __awaiter(this, void 0, void 0, function* () {
         const apiUrl = 'http://localhost:5043/api/UserInfo';
@@ -76,6 +151,16 @@ function FetchUsersApi() {
 function FetchProductApi() {
     return __awaiter(this, void 0, void 0, function* () {
         const apiUrl = 'http://localhost:5043/api/ProductDetails';
+        const response = yield fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Get ProductDetails Faild');
+        }
+        return yield response.json();
+    });
+}
+function FetchGetProductApi(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const apiUrl = `http://localhost:5043/api/ProductDetails/${id}`;
         const response = yield fetch(apiUrl);
         if (!response.ok) {
             throw new Error('Get ProductDetails Faild');
@@ -104,6 +189,7 @@ function displayNone() {
     CartListPage.style.display = "none";
     RechargePage.style.display = "none";
     ShowBalancePage.style.display = "none";
+    OrderHistoryPage.style.display = "none";
 }
 function loginDisplay() {
     signUpMain.style.display = "none";
@@ -114,22 +200,25 @@ function signUpDisplay() {
     signInMain.style.display = "none";
 }
 function SignUpFun() {
-    if (Upass.value != Uconpass.value || Upass.value == '') {
-        alert("Mismatch password please check ..!");
-    }
-    else {
-        const newuser = {
-            userID: undefined,
-            userName: Uname.value,
-            userEmailID: Uemail.value,
-            phoneNumber: Uphone.value,
-            passWord: Upass.value,
-            balance: 0
-        };
-        AddUserApi(newuser);
-        alert("Registration Successfully...!");
-        loginDisplay();
-    }
+    return __awaiter(this, void 0, void 0, function* () {
+        if (Upass.value != Uconpass.value || Upass.value == '') {
+            alert("Mismatch password please check ..!");
+        }
+        else {
+            const newuser = {
+                userID: undefined,
+                userName: Uname.value,
+                userEmailID: Uemail.value,
+                phoneNumber: Uphone.value,
+                passWord: Upass.value,
+                balance: 0
+            };
+            const newUser = yield AddUserApi(newuser);
+            console.log(newUser);
+            alert("Registration Successfully...!");
+            loginDisplay();
+        }
+    });
 }
 function SignInFun() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -172,6 +261,12 @@ function ViewCartBtn() {
 function CartListBtn() {
     displayNone();
     CartListPage.style.display = "block";
+    RenderCartList();
+}
+function OrderHistory() {
+    displayNone();
+    OrderHistoryPage.style.display = "block";
+    RenderOrderHistory();
 }
 function RechargeBtn(type) {
     displayNone();
@@ -253,12 +348,130 @@ function RenderCartBoxList() {
         productList.forEach(item => {
             cartMain.innerHTML += `
         <div class="cartBox" id="cartBox">
-        <img src="${item.productImg[0]}" width="100%" height="300px;">
+        <img src="${item.productImg[0]}"  border-radius: 10%; style="
+        border-radius: 10px;
+        text-align: center;
+        width: 100%;
+        height: 100px;
+    ">
         <p>${item.productName}</p>
         <h3>Price: ${item.perPrice}</h3>
-        <button>Add to Cart</button>
+        <button onclick="AddToCart(${item.productID})">Add to Cart</button>
         </div>
         `;
         });
+    });
+}
+function AddToCart(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const productList = yield FetchGetProductApi(id);
+        const item = {
+            orderID: undefined,
+            bookingID: 0,
+            productID: productList.productID,
+            purchaseCount: 1,
+            priceOfOrder: 1 * productList.perPrice
+        };
+        localCartList.push(item);
+        alert("Add to Cart Successfully...!");
+        console.log(localCartList);
+    });
+}
+function RenderCartList() {
+    return __awaiter(this, void 0, void 0, function* () {
+        // if (localCartList.length > 0) {
+        tableBody1.innerHTML = "";
+        localCartList.forEach((item) => __awaiter(this, void 0, void 0, function* () {
+            const GetProduct = yield FetchGetProductApi(item.productID);
+            const row = document.createElement("tr");
+            row.innerHTML = `
+            <td><img src="${GetProduct.productImg[0]}" style="height: 80px;width: 80px;"></td>
+            <td>${GetProduct.productName}</td>
+            <td>${item.purchaseCount}</td>
+            <td>${GetProduct.perPrice}</td>
+            <td>${item.purchaseCount * GetProduct.perPrice}</td>
+            <td>Action</td>
+            `;
+            tableBody1.appendChild(row);
+        }));
+        // }
+    });
+}
+function finalBuy() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let TotalAmount = 0;
+        localCartList.forEach(item => {
+            TotalAmount += item.priceOfOrder;
+        });
+        if (TotalAmount <= CurrentLoggedIn.balance) {
+            //create order
+            const orderBook = {
+                bookingID: undefined,
+                userID: CurrentLoggedIn.userID,
+                totalPrice: TotalAmount,
+                dateOfBooking: new Date(),
+                bookingStatus: "Ordered"
+            };
+            const newOrder = yield AddBookOrderApi(orderBook);
+            console.log(newOrder);
+            // ready to cart items
+            localCartList.forEach(item => {
+                item.bookingID = newOrder.bookingID;
+                // const Product = await FetchGetProductApi(item.productID)
+            });
+            localCartList.forEach((item) => __awaiter(this, void 0, void 0, function* () {
+                yield AddOrderDetailsApi(item);
+            }));
+            localCartList = [];
+            RenderCartList();
+            alert("Order Successfully...!");
+            // update Booking Order
+            //Reduce Funcationlity
+            CurrentLoggedIn.balance -= TotalAmount;
+            UpdateUserApi(CurrentLoggedIn.userID, CurrentLoggedIn);
+        }
+    });
+}
+function RenderOrderHistory() {
+    return __awaiter(this, void 0, void 0, function* () {
+        OrderHistoryPage.innerHTML = "";
+        let temp;
+        const BookingList = yield FetchBookingOrderApi();
+        BookingList.forEach((booking) => __awaiter(this, void 0, void 0, function* () {
+            if (booking.userID == CurrentLoggedIn.userID) {
+                temp = 1;
+                if (temp == 1) {
+                    OrderHistoryPage.innerHTML += `
+                <h4>Bill N0: ${booking.bookingID}</h4>
+                    <table id="OrderHistory${booking.bookingID}" border="2">
+                        <thead>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Per Perice</th>
+                            <th>Total Price</th>
+                        </thead>
+                    </table>
+                    <tbody><tbody>
+                    <h4>Total Amount: ${booking.totalPrice}</h4>
+                `;
+                    temp = 0;
+                }
+                const oderDetails = yield FetchOrderDetailsApi();
+                oderDetails.forEach((order) => __awaiter(this, void 0, void 0, function* () {
+                    if (order.bookingID == booking.bookingID) {
+                        var tableBody3 = document.getElementById("OrderHistory" + booking.bookingID);
+                        const product = yield FetchGetProductApi(order.productID);
+                        tableBody3.innerHTML += `
+                        <tr>
+                        <td>${product.productID}</td>
+                        <td>${product.productName}</td>
+                        <td>${product.perPrice}</td>
+                        <td>${order.priceOfOrder}</td>
+                        </tr>
+                        `;
+                    }
+                }));
+            }
+        }));
     });
 }

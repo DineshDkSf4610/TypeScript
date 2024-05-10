@@ -44,6 +44,7 @@
                     <li><button class="btn1" onclick="ProductBtn()">Produts</button></li>
                     <li><button class="btn1" onclick="ViewCartBtn()">ViewCart</button></li>
                     <li><button class="btn1" onclick="CartListBtn()">CartList</button></li>
+                    <li><button class="btn1" onclick="OrderHistory()">OrderHistory</button></li>
                     <li><button class="btn1" onclick="RechargeBtn('')">WalletRecharge</button></li>
                     <li><button class="btn1" onclick="ShowBalanceBtn()">ShowBalance</button></li>
                     <li><button class="btn1" onclick="LogoutBtn()">Logout</button></li>
@@ -68,7 +69,7 @@
                         <input type="date" id="ProductExpireDate"><br><br>
                         <form enctype="multipart/form-data">
                             <label>Image</label>
-                            <input type="file"  id="ProductImage">
+                            <input type="file" id="ProductImage">
                         </form>
                         <button type="submit" onclick="return AddProductFun()">Add</button><br><br>
                     </form>
@@ -86,12 +87,26 @@
                 </table>
             </div>
             <div id="CartPage">
-               <div class="cartMain" id="cartMain">
-                
-               </div>
+                <div class="cartMain" id="cartMain">
+
+                </div>
             </div>
             <div id="CartListPage">
-                welcome to cart list page
+                <table border="2" id="CartListTable">
+                    <thead>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total Price</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <br><br>
+                <button class="btn" onclick="finalBuy()">BUY</button>
+            </div>
+            <div id="OrderHistoryPage">
             </div>
             <div class="commonPage" id="RechargePage">
                 <label>Enter Amount</label>
