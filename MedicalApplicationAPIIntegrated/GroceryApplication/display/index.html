@@ -1,0 +1,109 @@
+<html>
+<title>Grocery Application</title>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="mainBody">
+    <div>
+        <div class="loginMain" id="loginMain">
+            <div class="login">
+                <h2 class="titleSty">Grocery Application</h2>
+                <br>
+                <div class="signUpMain" id="signUpMain">
+                    <h4>Sign Up</h4>
+                    <label>Enater Name</label><br>
+                    <input type="text" class="inputSty" id="Uname"><br><br>
+                    <label>Enter EmailID</label><br>
+                    <input type="text" class="inputSty" id="Uemail"><br><br>
+                    <label>Enter Phone Number</label><br>
+                    <input type="text" class="inputSty" id="Uphone"><br><br>
+                    <label>Enter Password</label><br>
+                    <input type="text" class="inputSty" id="Upass"><br><br>
+                    <label>Enter Confirm Password</label><br>
+                    <input type="text" class="inputSty" id="Uconpass"><br><br>
+                    <button type="submit" class="btn" onclick="SignUpFun()">Next</button><br><br>
+                    <button type="submit" class="btnTxt" onclick="loginDisplay()">Login</button><br><br>
+                </div>
+                <div class="signInMain" id="signInMain">
+                    <h4>Sign In</h4>
+                    <label>Enter EmailID</label><br>
+                    <input type="text" class="inputSty" id="Lemail"><br><br>
+                    <label>Enter Password</label><br>
+                    <input type="text" class="inputSty" id="Lpass"><br><br>
+                    <button type="submit" class="btn" onclick="SignInFun()">Next</button><br><br>
+                    <button type="submit" class="btnTxt" onclick="signUpDisplay()">Sign Up</button><br><br>
+                </div>
+            </div>
+        </div>
+        <div class="homeMain" id="homeMain">
+            <div class="header">
+                <ul class="headerUl">
+                    <li><button class="btn1" onclick="HomeBtn()">Home</button></li>
+                    <li><button class="btn1" onclick="ProductBtn()">Produts</button></li>
+                    <li><button class="btn1" onclick="ViewCartBtn()">ViewCart</button></li>
+                    <li><button class="btn1" onclick="CartListBtn()">CartList</button></li>
+                    <li><button class="btn1" onclick="RechargeBtn('')">WalletRecharge</button></li>
+                    <li><button class="btn1" onclick="ShowBalanceBtn()">ShowBalance</button></li>
+                    <li><button class="btn1" onclick="LogoutBtn()">Logout</button></li>
+                </ul>
+            </div>
+
+            <div class="HomePage" id="HomePage">
+
+            </div>
+            <div id="ProductPage">
+                <br>
+                <button class="btn2">Add Product</button><br>
+                <div>
+                    <form id="AddProductForm">
+                        <label>Product Name:</label>
+                        <input type="text" id="ProductName"><br><br>
+                        <label>Quantity:</label>
+                        <input type="text" id="ProductQty"><br><br>
+                        <label>Price:</label>
+                        <input type="text" id="ProductPrice"><br><br>
+                        <label>Expire Date:</label>
+                        <input type="date" id="ProductExpireDate"><br><br>
+                        <form enctype="multipart/form-data">
+                            <label>Image</label>
+                            <input type="file"  id="ProductImage">
+                        </form>
+                        <button type="submit" onclick="return AddProductFun()">Add</button><br><br>
+                    </form>
+                </div>
+                <table border="2" id="ProductTable">
+                    <thead>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Available Quantity</th>
+                        <th>Price</th>
+                        <th>Expire Date</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="CartPage">
+               <div class="cartMain" id="cartMain">
+                
+               </div>
+            </div>
+            <div id="CartListPage">
+                welcome to cart list page
+            </div>
+            <div class="commonPage" id="RechargePage">
+                <label>Enter Amount</label>
+                <input type="text" id="RechargeAmt"><br><br>
+                <button class="btn1" type="submit" onclick="RechargeBtn('click')">Submit</button>
+            </div>
+            <div class="commonPage" id="ShowBalancePage">
+
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
